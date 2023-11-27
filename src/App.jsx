@@ -1,53 +1,58 @@
 import "./App.css";
-import Button from "./components/Button";
-
-export const animal = "Dog";
+import Button from "./components/Button/Button";
+import ProfileCard from "./components/ProfileCard";
 
 function App() {
-  // JSX позволят нам создавать переменные и передавать туда теги
-  const name = <p>My name is Gleb</p>;
-  const job = "Frontend developer";
-  const tegJobId = "job";
-
-  const characters = {
-    hair: "black",
-    height: "185",
+  const profileInfo1 = {
+    avatar:
+      "https://super-avatara.ru/images/trueimg/pictures/69/08010C5B042B-69.gif",
+    firstName: "John",
+    lastName: "Smith",
+    occupation: "React-developer",
+    hairColor: "Blue",
+    height: "160 sm",
+    hobby: "Computer games",
+    homePets: {
+      dog: "Spyke",
+      cat: "cat1",
+    },
   };
 
-  const sum = (a, b) => a + b;
-
-  const numberOfFriends = (count) => {
-    if (count > 5) {
-      return `У вас ${count} друзей`;
-    } else {
-      return "У вас менее 5 друзей";
-    }
+  const profileInfo2 = {
+    avatar:
+      "https://super-avatara.ru/images/trueimg/pictures/69/62164C9D620F-69.gif",
+    firstName: "Иван",
+    lastName: "Иванов",
+    occupation: "Фронтендер",
+    hairColor: "Серый",
+    height: "175 см",
+    hobby: "Рыбалка",
   };
 
-  const rich = true;
+  const profileInfo3 = {
+    avatar:
+      "https://super-avatara.ru/images/trueimg/pictures/69/94B37D6DE14F-69.gif",
+    firstName: "Tina",
+    lastName: "Turner",
+    occupation: "Singer",
+    hairColor: "Gold",
+    height: "170 sm",
+    hobby: "Music",
+  };
 
   return (
     <div className="App">
-      {name}
-      {/* JSX позволяет нам передавать переменные с помощью фигурных скобок в HTML дерево */}
-      <p id={tegJobId}>I am {job}</p>
-      <p>Возвращаемая сумма: {sum(2, 2)}</p>
-      <p>Характеристики</p>
-      <ul>
-        <li>Цвет волос: {characters.hair}</li>
-        <li>Рост:{characters.height} </li>
-      </ul>
-      <p>Favorite animal:{animal}</p>
-      <div>{numberOfFriends(7)}</div>
-      <div>{rich ? "Вы богатый" : "Вы не в достатке"}</div>
+      <div className="card-container">
+        <ProfileCard profileInfo={profileInfo1} />
+        <ProfileCard profileInfo={profileInfo2} />
+        <ProfileCard profileInfo={profileInfo3} />
+      </div>
+
       <div className="button-container">
         <Button name="Отправить" type="submit" />
       </div>
       <div className="button-container">
-        <Button name="Получить товар" type="submit" />
-      </div>
-      <div className="button-container">
-        <Button>Children element</Button>
+        <Button name="Получить" />
       </div>
       <div className="button-container">
         <Button />
